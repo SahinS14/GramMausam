@@ -82,7 +82,27 @@ def get_data() -> pd.DataFrame:
     if _data is None:
         if not DATA_PATH.exists():
             raise RuntimeError(f"Dataset missing: {DATA_PATH}")
-        _data = pd.read_csv(DATA_PATH, parse_dates=["DATE"], dtype={"GPCODE": str})
+        # Keep the public deployment well within a free-instance memory budget.
+        # Float32 is sufficient for daily weather inputs and preserves the
+        # trained model's feature values at inference time.
+        _data = pd.read_csv(
+            DATA_PATH,
+            parse_dates=["DATE"],
+            dtype={
+                "GPCODE": str,
+                "RAINFALL": "float32",
+                "REFERENCE_RAINFALL": "float32",
+                "TEMPERATURE": "float32",
+                "HUMIDITY": "float32",
+                "WIND": "float32",
+                "ET": "float32",
+                "ELEVATION": "float32",
+                "SLOPE": "float32",
+                "LANDCOVER": "float32",
+            },
+        )
+        _data["GPNAME"] = _data["GPNAME"].astype("category")
+        _data["BLOCK"] = _data["BLOCK"].astype("category")
     return _data
 
 
