@@ -1,0 +1,137 @@
+{
+    "experiment_name": "Dhanbad_Panchayat_Rainfall_Downscaling",
+    "dataset_name": "master_dataset_v2.csv",
+    "dataset_row_count": 436653,
+    "number_of_panchayats_total": 239,
+    "number_of_panchayats_modeled": 237,
+    "excluded_missing_target_rows": 3654,
+    "excluded_panchayats": [
+        "MAHESHPUR 2 (GPCODE 111755)",
+        "RAJGANJ (GPCODE 111773)"
+    ],
+    "date_range": "2020-01-01 to 2024-12-31",
+    "train_period": "2020-01-01 to 2022-12-31 (259,752 rows)",
+    "validation_period": "2023-01-01 to 2023-12-31 (86,505 rows)",
+    "test_period": "2024-01-01 to 2024-12-31 (86,742 rows)",
+    "target_variable": "RAINFALL (CHIRPS daily precipitation)",
+    "reference_variable": "REFERENCE_RAINFALL (ERA5-Land daily precipitation)",
+    "selected_model": "Ridge_Residual",
+    "model_parameters": {
+        "Ridge": {
+            "scaler": "StandardScaler",
+            "alpha": 10.0,
+            "random_state": 42
+        }
+    },
+    "random_seed": 42,
+    "feature_list": [
+        "TEMPERATURE",
+        "HUMIDITY",
+        "WIND",
+        "ET",
+        "ELEVATION",
+        "SLOPE",
+        "LANDCOVER",
+        "MONTH",
+        "DAY_OF_YEAR",
+        "SIN_DOY",
+        "COS_DOY",
+        "MONSOON_FLAG",
+        "REFERENCE_RAINFALL",
+        "LOG_REFERENCE_RAINFALL",
+        "REFERENCE_RAIN_EVENT"
+    ],
+    "held_out_blocks_spatial_experiment": [
+        "Tundi",
+        "Topchanchi"
+    ],
+    "ridge_direct_vs_residual_diagnostics": {
+        "val_max_abs_difference": 0.007806013165343018,
+        "val_mean_abs_difference": 0.00022105678735185683,
+        "val_exact_equality": false,
+        "val_numerical_equality_allclose": false,
+        "test_max_abs_difference": 0.024717133819834203,
+        "test_mean_abs_difference": 0.00034099792959915736,
+        "test_exact_equality": false,
+        "test_numerical_equality_allclose": false,
+        "direct_intercept": 4.34139426244212,
+        "residual_intercept": 0.6171413353911832,
+        "reference_rainfall_feature_index": 12,
+        "feature_names": [
+            "TEMPERATURE",
+            "HUMIDITY",
+            "WIND",
+            "ET",
+            "ELEVATION",
+            "SLOPE",
+            "LANDCOVER",
+            "MONTH",
+            "DAY_OF_YEAR",
+            "SIN_DOY",
+            "COS_DOY",
+            "MONSOON_FLAG",
+            "REFERENCE_RAINFALL",
+            "LOG_REFERENCE_RAINFALL",
+            "REFERENCE_RAIN_EVENT"
+        ],
+        "direct_coefficients": [
+            0.5104055642475455,
+            0.19171787943279864,
+            -0.48579412993941706,
+            -0.5364878394270279,
+            -0.05535530772089628,
+            0.010844266591262357,
+            0.00032399757364809335,
+            -5.348517190858877,
+            4.858592537980641,
+            -1.1497100577815114,
+            -1.2149743405252815,
+            0.6231086520906624,
+            2.2455982696575374,
+            2.5609224004739137,
+            -0.7992992502492822
+        ],
+        "residual_coefficients": [
+            0.5103894163129539,
+            0.19174149530755438,
+            -0.48588487938921276,
+            -0.5364110971737551,
+            -0.05535160429968738,
+            0.010844139042257886,
+            0.00032489332014244314,
+            -5.348076736895415,
+            4.858153061068587,
+            -1.1496786894477053,
+            -1.2149380037541058,
+            0.6232021935207314,
+            -5.342663452364041,
+            2.5596713182058535,
+            -0.7989176779576767
+        ]
+    },
+    "panchayat_distribution_metrics": {
+        "median_rmse_improvement": 3.5964801415811527,
+        "mean_rmse_improvement": 3.5184290822280806,
+        "min_rmse_improvement": 1.6702147560080958,
+        "max_rmse_improvement": 4.4982161543687775,
+        "p25_rmse_improvement": 3.1629873920280485,
+        "p75_rmse_improvement": 4.116912504987782,
+        "pct_panchayats_improving": 100.0,
+        "total_panchayats": 237
+    },
+    "spatial_holdout_summary": {
+        "n_train_panchayats": 195,
+        "n_heldout_panchayats": 42,
+        "heldout_blocks": [
+            "Tundi",
+            "Topchanchi"
+        ],
+        "n_test_records": 15372,
+        "era5_unseen_rmse": 8.980077349302366,
+        "ridge_unseen_rmse": 6.391964256447228,
+        "rmse_improvement": 2.5881130928551386,
+        "unseen_mae": 3.434916288351295,
+        "unseen_r2": 0.3947779444929722,
+        "unseen_correlation": 0.6473426038062914
+    }
+}

@@ -1,0 +1,20 @@
+__pycache__/
+*.pyc
+*.pyo
+.DS_Store
+.venv/
+venv/
+*.log
+
+# Frontend build and package-manager output
+frontend/geo-monsoon-pulse/node_modules/
+frontend/geo-monsoon-pulse/.output/
+frontend/geo-monsoon-pulse/dist/
+
+# Regenerable duplicate datasets and legacy model copies.
+# The canonical runtime dataset is data/master_dataset_v2.csv and the
+# canonical trained artifacts are kept in ml/models/.
+data/processed/
+ml/data/raw/
+ml/data/processed/
+models/
