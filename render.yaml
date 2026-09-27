@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: grammausam-ml-api
+    runtime: python
+    plan: free
+    buildCommand: pip install -r backend/requirements.txt
+    startCommand: uvicorn backend.main:app --host 0.0.0.0 --port $PORT
+
+  - type: web
+    name: grammausam-dashboard
+    runtime: node
+    plan: free
+    buildCommand: cd frontend/geo-monsoon-pulse && npm install && NITRO_PRESET=node-server npm run build
+    startCommand: node frontend/geo-monsoon-pulse/.output/server/index.mjs
+    envVars:
+      - key: VITE_API_BASE_URL
+        value: https://grammausam-ml-api.onrender.com/api/v1

@@ -35,7 +35,9 @@ FEATURES = [
 app = FastAPI(title="Dhanbad Panchayat Downscaling API", version="1.0.0")
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173", "http://127.0.0.1:5173"],
+    # The public dashboard is deployed separately from this read-only API.
+    # No credentials or user data are accepted by these endpoints.
+    allow_origins=["*"],
     allow_methods=["GET", "POST"],
     allow_headers=["*"],
 )

@@ -12,6 +12,8 @@ import {
 } from "lucide-react";
 import { ProductPage } from "@/components/pages/product-page";
 
+const apiBase = import.meta.env.VITE_API_BASE_URL ?? "http://127.0.0.1:8000/api/v1";
+
 const previewDays = [
   { day: "Today", note: "Select Panchayat", icon: CloudRain },
   { day: "Day 2", note: "Live forecast", icon: Cloud },
@@ -46,9 +48,7 @@ function ForecastPage() {
     try {
       const item = JSON.parse(saved) as { code: string; name: string };
       setSelected(item);
-      fetch(
-        `http://127.0.0.1:8000/api/v1/panchayats/${encodeURIComponent(item.code)}/forecast?days=5`,
-      )
+      fetch(`${apiBase}/panchayats/${encodeURIComponent(item.code)}/forecast?days=5`)
         .then((r) => (r.ok ? r.json() : Promise.reject()))
         .then((r: { forecast: ForecastDay[] }) => setForecast(r.forecast))
         .catch(() => undefined);

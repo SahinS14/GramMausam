@@ -13,6 +13,8 @@ import {
 } from "lucide-react";
 import { ProductPage } from "@/components/pages/product-page";
 
+const apiBase = import.meta.env.VITE_API_BASE_URL ?? "http://127.0.0.1:8000/api/v1";
+
 const advice = [
   {
     icon: CloudRain,
@@ -74,9 +76,7 @@ function FarmAdvicePage() {
     try {
       const item = JSON.parse(raw) as { code: string; name: string };
       setSelected(item);
-      fetch(
-        `http://127.0.0.1:8000/api/v1/panchayats/${encodeURIComponent(item.code)}/forecast?days=5`,
-      )
+      fetch(`${apiBase}/panchayats/${encodeURIComponent(item.code)}/forecast?days=5`)
         .then((r) => (r.ok ? r.json() : Promise.reject()))
         .then((r: { forecast: LiveForecast[] }) => setLive(r.forecast[0]))
         .catch(() => undefined);
