@@ -3,27 +3,10 @@ import type { Bounds } from "@/types/geography";
 
 /**
  * A lightweight raster basemap is more robust than a remote vector style on
- * restricted/mobile networks. CARTO serves CORS-enabled public raster tiles
- * and requires no API key.
+ * restricted/mobile networks. OpenFreeMap's Natural Earth tiles are public,
+ * CORS-enabled, and do not require an API key.
  */
 export const MAP_STYLE_URL: StyleSpecification = {
-  version: 8,
-  sources: {
-    carto: {
-      type: "raster",
-      tiles: ["https://a.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}.png"],
-      tileSize: 256,
-      attribution: "© OpenStreetMap contributors © CARTO",
-    },
-  },
-  layers: [
-    { id: "basemap-background", type: "background", paint: { "background-color": "#edf1f2" } },
-    { id: "carto-basemap", type: "raster", source: "carto" },
-  ],
-};
-
-/** Independent public-tile fallback keeps context visible if CARTO is unavailable. */
-export const FALLBACK_STYLE: StyleSpecification = {
   version: 8,
   sources: {
     naturalEarth: {
@@ -36,6 +19,15 @@ export const FALLBACK_STYLE: StyleSpecification = {
   layers: [
     { id: "basemap-background", type: "background", paint: { "background-color": "#edf1f2" } },
     { id: "natural-earth-basemap", type: "raster", source: "naturalEarth" },
+  ],
+};
+
+/** Boundary-only fallback keeps geographic selection usable if tiles are unavailable. */
+export const FALLBACK_STYLE: StyleSpecification = {
+  version: 8,
+  sources: {},
+  layers: [
+    { id: "basemap-background", type: "background", paint: { "background-color": "#edf1f2" } },
   ],
 };
 
