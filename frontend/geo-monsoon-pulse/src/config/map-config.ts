@@ -1,32 +1,21 @@
 import type { StyleSpecification } from "maplibre-gl";
 import type { Bounds } from "@/types/geography";
 
-/** Local MapLibre style using public raster tiles. No API key required. */
-export const MAP_STYLE_URL: StyleSpecification = {
+/**
+ * OpenFreeMap is browser-accessible without an API key. The previous OSM tile
+ * endpoint returns an access-denied response to the deployed dashboard.
+ */
+export const MAP_STYLE_URL = "https://tiles.openfreemap.org/styles/positron";
+
+/** Boundary-only fallback keeps geographic selection usable without any tile provider. */
+export const FALLBACK_STYLE: StyleSpecification = {
   version: 8,
   glyphs: "https://tiles.openfreemap.org/fonts/{fontstack}/{range}.pbf",
-  sources: {
-    osm: {
-      type: "raster",
-      tiles: ["https://tile.openstreetmap.org/{z}/{x}/{y}.png"],
-      tileSize: 256,
-      maxzoom: 19,
-      attribution: "© OpenStreetMap contributors",
-    },
-  },
+  sources: {},
   layers: [
     { id: "basemap-background", type: "background", paint: { "background-color": "#edf1f2" } },
-    {
-      id: "basemap",
-      type: "raster",
-      source: "osm",
-      paint: { "raster-saturation": -0.65, "raster-contrast": -0.08, "raster-opacity": 0.9 },
-    },
   ],
 };
-
-/** Fallback: OpenStreetMap standard raster tiles (desaturated), used once if the primary style fails. */
-export const FALLBACK_STYLE = "https://tiles.openfreemap.org/styles/positron";
 
 export const INDIA_BOUNDS: Bounds = [
   [68.1, 6.5],
