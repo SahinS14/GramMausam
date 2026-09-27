@@ -1,0 +1,7 @@
+# Vercel installs runtime dependencies from the repository root.
+fastapi>=0.115,<1
+uvicorn[standard]>=0.30,<1
+pandas>=2.0
+numpy>=1.24
+scikit-learn>=1.2
+joblib>=1.2

@@ -10,6 +10,7 @@ venv/
 frontend/geo-monsoon-pulse/node_modules/
 frontend/geo-monsoon-pulse/.output/
 frontend/geo-monsoon-pulse/dist/
+frontend/geo-monsoon-pulse/.vercel/
 
 # Regenerable duplicate datasets and legacy model copies.
 # The canonical runtime dataset is data/master_dataset_v2.csv and the
@@ -23,3 +24,4 @@ ml/models/*
 
 # Local screenshot staging directory; published screenshots live in docs/screenshots/.
 /git/
+.vercel

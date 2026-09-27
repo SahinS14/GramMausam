@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1200" viewBox="0 0 1920 1200" role="img" aria-labelledby="title desc">
   <title id="title">GramMausam system design</title>
-  <desc id="desc">A corporate system design diagram showing users, browser, public weather and map providers, Render hosted dashboard and ML API, packaged model/data, offline training pipeline, and Panchayat forecast outputs.</desc>
+  <desc id="desc">A corporate system design diagram showing users, browser, public weather and map providers, Vercel hosted dashboard and ML API, packaged model/data, offline training pipeline, and Panchayat forecast outputs.</desc>
   <defs>
     <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="0" dy="5" stdDeviation="7" flood-color="#102b45" flood-opacity=".16"/></filter>
     <marker id="dark-arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0L9 5L0 10Z" fill="#31485a"/></marker>
@@ -30,15 +30,15 @@
   <g filter="url(#shadow)"><rect x="88" y="814" width="204" height="104" rx="5" fill="#edf9f6" stroke="#00856d"/><path d="M108 848h35v35h-35z" fill="#00856d"/><path d="M114 870l8-10 8 6 7-11" fill="none" stroke="#fff" stroke-width="2"/><text x="155" y="850" class="node">OpenFreeMap</text><text x="155" y="875" class="product">Browser map tiles</text></g>
   <g filter="url(#shadow)"><rect x="88" y="952" width="204" height="78" rx="5" fill="#f5f7fa" stroke="#8395a5"/><text x="110" y="984" class="node">Browser location</text><text x="110" y="1008" class="product">Permission-based only</text></g>
 
-  <!-- render boundary -->
+  <!-- Vercel boundary -->
   <rect x="390" y="154" width="1465" height="906" rx="4" fill="#f8fcff" stroke="#10a6e5" stroke-width="3" stroke-dasharray="10 6"/>
-  <rect x="410" y="135" width="165" height="38" rx="4" fill="#10a6e5"/><text x="430" y="160" class="cap">RENDER CLOUD</text>
+  <rect x="410" y="135" width="165" height="38" rx="4" fill="#10a6e5"/><text x="430" y="160" class="cap">VERCEL CLOUD</text>
   <text x="598" y="161" class="h">Production deployment boundary</text>
 
   <!-- interface layer -->
   <rect x="426" y="210" width="650" height="355" rx="4" fill="#fff" stroke="#c9d9e5"/>
   <rect x="426" y="210" width="650" height="38" fill="#e2f3fc"/><text x="448" y="235" class="zone">PRESENTATION LAYER · PUBLIC WEB SERVICE</text>
-  <g filter="url(#shadow)"><rect x="458" y="280" width="275" height="215" rx="6" fill="#fff" stroke="#2389c5" stroke-width="2"/><rect x="458" y="280" width="275" height="43" fill="#197dbb"/><text x="480" y="308" class="white">GramMausam Dashboard</text><text x="482" y="352" class="node">React 19 + TypeScript</text><text x="482" y="379" class="product">Vite · TanStack Start</text><text x="482" y="406" class="product">Router · Query · Tailwind</text><text x="482" y="433" class="product">MapLibre map experience</text><text x="482" y="469" class="xs">Hosted: grammausam-dashboard.onrender.com</text></g>
+  <g filter="url(#shadow)"><rect x="458" y="280" width="275" height="215" rx="6" fill="#fff" stroke="#2389c5" stroke-width="2"/><rect x="458" y="280" width="275" height="43" fill="#197dbb"/><text x="480" y="308" class="white">GramMausam Dashboard</text><text x="482" y="352" class="node">React 19 + TypeScript</text><text x="482" y="379" class="product">Vite · TanStack Start</text><text x="482" y="406" class="product">Router · Query · Tailwind</text><text x="482" y="433" class="product">MapLibre map experience</text><text x="482" y="469" class="xs">Hosted: grammausam-dashboard.vercel.app</text></g>
   <g filter="url(#shadow)"><rect x="772" y="280" width="272" height="215" rx="6" fill="#f5fbff" stroke="#2389c5"/><text x="796" y="323" class="node">User experience modules</text><text x="796" y="358" class="product">• Location selection</text><text x="796" y="384" class="product">• Live weather summary</text><text x="796" y="410" class="product">• 5-day forecast</text><text x="796" y="436" class="product">• Farm advice + blogs</text><text x="796" y="469" class="xs">Selected Panchayat stored in browser</text></g>
   <path d="M735 388H760" stroke="#007fc4" stroke-width="3" marker-end="url(#blue-arrow)"/>
 

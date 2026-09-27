@@ -1,0 +1,14 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "buildCommand": "NITRO_PRESET=vercel npm run build",
+  "rewrites": [
+    {
+      "source": "/api/v1/:path*",
+      "destination": "https://grammausam-api.vercel.app/api/v1/:path*"
+    },
+    {
+      "source": "/health",
+      "destination": "https://grammausam-api.vercel.app/health"
+    }
+  ]
+}

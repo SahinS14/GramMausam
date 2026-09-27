@@ -1,0 +1,8 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "functions": {
+    "api/index.py": {
+      "includeFiles": "{data/master_dataset_v2.csv,ml/models/Ridge_residual.joblib}"
+    }
+  }
+}

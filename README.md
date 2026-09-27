@@ -12,11 +12,11 @@ GramMausam is an end-to-end prototype for the SIH problem statement: **downscali
 
 | Public service | Link | Purpose |
 | --- | --- | --- |
-| **GramMausam dashboard** | **[Open the live demo](https://grammausam-dashboard.onrender.com/)** | Judge-ready Panchayat forecast, ML downscaling output, maps, and farm advice. |
-| **ML API health check** | **[Open API status](https://grammausam-ml-api.onrender.com/health)** | Confirms the hosted FastAPI service, trained Ridge Residual model, and Panchayat catalogue are available. |
-| **Forecast API example** | **[View BAGDAHA Panchayat forecast](https://grammausam-ml-api.onrender.com/api/v1/panchayats/111722/forecast)** | Returns machine-readable five-day downscaled forecast data for a Panchayat. |
+| **GramMausam dashboard** | **[Open the live demo](https://grammausam-dashboard.vercel.app/)** | Judge-ready Panchayat forecast, ML downscaling output, maps, and farm advice. |
+| **ML API health check** | **[Open API status](https://grammausam-api.vercel.app/health)** | Confirms the hosted FastAPI service, trained Ridge Residual model, and Panchayat catalogue are available. |
+| **Forecast API example** | **[View BAGDAHA Panchayat forecast](https://grammausam-api.vercel.app/api/v1/panchayats/111722/forecast)** | Returns machine-readable five-day downscaled forecast data for a Panchayat. |
 
-The services use Render's free hosting tier. If inactive, the ML API may need a short wake-up period before the first Panchayat forecast request completes.
+The application is deployed on Vercel. The dashboard proxies `/api/v1` requests to the FastAPI ML service, so visitors use one clean public URL.
 
 > **Current coverage:** the trained model is for **Dhanbad District, Jharkhand only**. It supports 237 Panchayats with complete supervised rainfall targets. It is not an official weather warning system.
 

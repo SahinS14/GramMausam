@@ -1,0 +1,14 @@
+# Raw/training artefacts are not needed by the live API. Keeping only the
+# master inference dataset makes the Vercel Python function much smaller.
+frontend/
+docs/
+data/dynamic/
+data/processed/
+data/static/
+data/production/
+data/*.png
+ml/data/
+ml/results/
+ml/figures/
+ml/models/*
+!ml/models/Ridge_residual.joblib

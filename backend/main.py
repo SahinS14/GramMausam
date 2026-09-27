@@ -26,6 +26,17 @@ DATA_PATH = ROOT / "data" / "master_dataset_v2.csv"
 MODEL_PATH = ROOT / "ml" / "models" / "Ridge_residual.joblib"
 BLOCKS_PATH = ROOT / "frontend" / "geo-monsoon-pulse" / "public" / "geo" / "blocks" / "dhanbad--jharkhand.json"
 
+# Compact production fallback for serverless bundles. Local development reads
+# the LGD-derived map metadata above; hosted inference only needs these block
+# label points to request the public forecast.
+BLOCK_LOCATIONS = {
+    "Topchanchi": (23.88368, 86.20760), "Tundi": (23.97117, 86.41553),
+    "Dhanbad": (23.77318, 86.35877), "Baghmara": (23.80996, 86.27337),
+    "Kaliasol": (23.70490, 86.41195), "Baliapur": (23.72231, 86.51305),
+    "Nirsa": (23.80004, 86.72258), "Egarkund": (23.75894, 86.78648),
+    "Purvi Tundi": (23.91774, 86.59311), "Govindpur": (23.85838, 86.48193),
+}
+
 FEATURES = [
     "TEMPERATURE", "HUMIDITY", "WIND", "ET", "ELEVATION", "SLOPE", "LANDCOVER",
     "MONTH", "DAY_OF_YEAR", "SIN_DOY", "COS_DOY", "MONSOON_FLAG",
@@ -133,6 +144,8 @@ def advisory(predicted: float, wind: float, month: int) -> list[dict[str, str]]:
 
 def get_block_locations() -> dict[str, tuple[float, float]]:
     """Returns block name -> (latitude, longitude) from the checked-in LGD map."""
+    if not BLOCKS_PATH.exists():
+        return BLOCK_LOCATIONS
     raw = json.loads(BLOCKS_PATH.read_text(encoding="utf-8"))
     return {
         feature["properties"]["name"]: (

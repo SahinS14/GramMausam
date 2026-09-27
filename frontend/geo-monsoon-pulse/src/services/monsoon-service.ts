@@ -17,13 +17,16 @@ const resolve = (regionOrId?: RegionMeta | string): RegionMeta => {
   return regionOrId;
 };
 
+const apiBase =
+  import.meta.env.VITE_API_BASE_URL ??
+  (import.meta.env.PROD ? "/api/v1" : "http://127.0.0.1:8000/api/v1");
+
 export const monsoonService = {
   async getCurrentLocationWeather(
     latitude: number,
     longitude: number,
     signal?: AbortSignal,
   ): Promise<CurrentLocationWeather> {
-    const apiBase = import.meta.env.VITE_API_BASE_URL ?? "http://127.0.0.1:8000/api/v1";
     const response = await fetch(
       `${apiBase}/current-weather?latitude=${latitude}&longitude=${longitude}&days=5`,
       { signal },
@@ -92,7 +95,6 @@ export const monsoonService = {
     const pending = this.getRainfallIntelligence(region);
     if (pending.coverage === "unavailable" || !region || typeof region === "string") return pending;
     if (region.level !== "panchayat" || !region.code) return pending;
-    const apiBase = import.meta.env.VITE_API_BASE_URL ?? "http://127.0.0.1:8000/api/v1";
     try {
       const response = await fetch(
         `${apiBase}/panchayats/${encodeURIComponent(region.code)}/history?days=30`,

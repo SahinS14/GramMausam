@@ -12,7 +12,9 @@ import {
 } from "lucide-react";
 import { ProductPage } from "@/components/pages/product-page";
 
-const apiBase = import.meta.env.VITE_API_BASE_URL ?? "http://127.0.0.1:8000/api/v1";
+const apiBase =
+  import.meta.env.VITE_API_BASE_URL ??
+  (import.meta.env.PROD ? "/api/v1" : "http://127.0.0.1:8000/api/v1");
 
 const previewDays = [
   { day: "Today", note: "Select Panchayat", icon: CloudRain },
