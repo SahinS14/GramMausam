@@ -18,3 +18,8 @@ data/processed/
 ml/data/raw/
 ml/data/processed/
 /models/
+ml/models/*
+!ml/models/Ridge_residual.joblib
+
+# Local screenshot staging directory; published screenshots live in docs/screenshots/.
+/git/
