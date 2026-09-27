@@ -14,9 +14,25 @@ GramMausam is an end-to-end prototype for the SIH problem statement: **downscali
 
 The dashboard guides a user through State → District → Block → Panchayat selection, then displays a five-day downscaled forecast, the model adjustment, local weather context, farm actions, maps, and agricultural guides.
 
-| Forecast and local-context experience | Farm-advice experience |
-| --- | --- |
-| ![Farm landscape used in the Panchayat forecast dashboard](frontend/geo-monsoon-pulse/public/images/agri-blog-panorama.png) | ![Farm-advice visual used in the GramMausam interface](frontend/geo-monsoon-pulse/public/images/farm-advice-hero.png) |
+### Panchayat selection and visible ML downscaling output
+
+![GramMausam location selector and Ridge Residual ML adjustment](docs/screenshots/dashboard-location-and-ml-output.png)
+
+### Live Panchayat weather and five-day downscaled forecast
+
+![GramMausam live Panchayat forecast dashboard](docs/screenshots/dashboard-live-forecast.png)
+
+### Interactive Dhanbad location context
+
+![GramMausam selected Panchayat map](docs/screenshots/dashboard-map.png)
+
+### Dedicated five-day forecast screen
+
+![GramMausam five-day forecast page](docs/screenshots/five-day-forecast.png)
+
+### Forecast-driven farm advisory screen
+
+![GramMausam farm advice page](docs/screenshots/farm-advice.png)
 
 ## Problem-to-solution fit
 
