@@ -10,30 +10,6 @@ GramMausam is an end-to-end prototype for the SIH problem statement: **downscali
 
 > **Current coverage:** the trained model is for **Dhanbad District, Jharkhand only**. It supports 237 Panchayats with complete supervised rainfall targets. It is not an official weather warning system.
 
-## Product preview
-
-The dashboard guides a user through State → District → Block → Panchayat selection, then displays a five-day downscaled forecast, the model adjustment, local weather context, farm actions, maps, and agricultural guides.
-
-### Panchayat selection and visible ML downscaling output
-
-![GramMausam location selector and Ridge Residual ML adjustment](docs/screenshots/dashboard-location-and-ml-output.png)
-
-### Live Panchayat weather and five-day downscaled forecast
-
-![GramMausam live Panchayat forecast dashboard](docs/screenshots/dashboard-live-forecast.png)
-
-### Interactive Dhanbad location context
-
-![GramMausam selected Panchayat map](docs/screenshots/dashboard-map.png)
-
-### Dedicated five-day forecast screen
-
-![GramMausam five-day forecast page](docs/screenshots/five-day-forecast.png)
-
-### Forecast-driven farm advisory screen
-
-![GramMausam farm advice page](docs/screenshots/farm-advice.png)
-
 ## Problem-to-solution fit
 
 | SIH requirement | GramMausam implementation |
@@ -221,6 +197,30 @@ Example: Baghmara → BAGDAHA
 - Live prototype values use Open-Meteo, not IMD. Replacing that input with authorised IMD/NWP forecast feeds is required for operational use.
 - Advisory messages are decision-support prototypes. Crop-stage recommendations require validation by KVK/agricultural experts before farmer deployment.
 - Continuous rainfall error is substantially improved, but extreme convective rainfall and trace-rain false alarms remain an important limitation to address with an operational two-stage event + regression model.
+
+## Interface gallery
+
+The dashboard guides a user through State → District → Block → Panchayat selection, then displays a five-day downscaled forecast, the model adjustment, local weather context, farm actions, maps, and agricultural guides.
+
+### Panchayat selection and visible ML downscaling output
+
+![GramMausam location selector and Ridge Residual ML adjustment](docs/screenshots/dashboard-location-and-ml-output.png)
+
+### Live Panchayat weather and five-day downscaled forecast
+
+![GramMausam live Panchayat forecast dashboard](docs/screenshots/dashboard-live-forecast.png)
+
+### Interactive Dhanbad location context
+
+![GramMausam selected Panchayat map](docs/screenshots/dashboard-map.png)
+
+### Dedicated five-day forecast screen
+
+![GramMausam five-day forecast page](docs/screenshots/five-day-forecast.png)
+
+### Forecast-driven farm advisory screen
+
+![GramMausam farm advice page](docs/screenshots/farm-advice.png)
 
 ## Team
 
