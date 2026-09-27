@@ -8,6 +8,12 @@
 
 GramMausam is an end-to-end prototype for the SIH problem statement: **downscaling weather forecasts from Block level to Panchayat level for agro-meteorological advisory services**. It turns a coarse rainfall forecast into a Panchayat-level estimate, explains the local adjustment, and presents forecast-driven farm guidance in a simple web dashboard.
 
+## Live demo
+
+Visit the judge-ready public dashboard: **[grammausam-dashboard.onrender.com](https://grammausam-dashboard.onrender.com/)**
+
+The demo uses Render's free hosting tier. If it has been inactive, the ML API can take a short time to wake up before the first Panchayat forecast request completes.
+
 > **Current coverage:** the trained model is for **Dhanbad District, Jharkhand only**. It supports 237 Panchayats with complete supervised rainfall targets. It is not an official weather warning system.
 
 ## Problem-to-solution fit
