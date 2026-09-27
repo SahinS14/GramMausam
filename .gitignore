@@ -17,4 +17,4 @@ frontend/geo-monsoon-pulse/dist/
 data/processed/
 ml/data/raw/
 ml/data/processed/
-models/
+/models/
